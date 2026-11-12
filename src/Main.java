@@ -52,6 +52,59 @@ public class Main {
                             System.out.println("Que pena, o número sorteado foi " + numSecreto);
                         }
                         break;
+
+                    case 2:
+                        System.out.println("Escolha 1 para pedra, 2 para papel e 3 para tesoura.");
+                        int numOpcao = scanner.nextInt();
+
+                        int numOpcaoSecreto = random.nextInt(3) + 1;
+
+                        String objetoJogador;
+                        String objetoMaquina;
+
+                        switch (numOpcaoSecreto) {
+                            case 1:
+                                objetoMaquina = "pedra";
+                                break;
+                            case 2:
+                                objetoMaquina = "papel";
+                                break;
+                            case 3:
+                                objetoMaquina = "tesoura";
+                                break;
+                            default:
+                                objetoMaquina = "Objeto inválido";
+                                break;
+                        }
+
+                        switch (numOpcao) {
+                            case 1:
+                                objetoJogador = "pedra";
+                                break;
+                            case 2:
+                                objetoJogador = "papel";
+                                break;
+                            case 3:
+                                objetoJogador = "tesoura";
+                                break;
+                            default:
+                                objetoJogador = "Objeto inválido";
+                                break;
+                        }
+                        if (numOpcao >= 1 && numOpcao <= 3) {
+                            if (numOpcao == numOpcaoSecreto) {
+                                System.out.println("Você escolheu " + objetoJogador + " o computador escolheu " + objetoMaquina + ", foi um empate!");
+                            } else if ((numOpcao == 1 && numOpcaoSecreto == 3)
+                                    || (numOpcao == 2 && numOpcaoSecreto == 1)
+                                    || (numOpcao == 3 && numOpcaoSecreto == 2)) {
+                                System.out.println("Você escolheu " + objetoJogador + " o computador escolheu " + objetoMaquina + ", você venceu!");
+                            } else {
+                                System.out.println("Você escolheu " + objetoJogador + " o computador escolheu " + objetoMaquina + ", você perdeu!");
+                            }
+                        } else {
+                            System.out.println("Jogada Inválida.");
+                        }
+                        break;
                 }
             } else if (opcao == 0) {
                 System.out.println("Até mais!");
