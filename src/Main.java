@@ -21,8 +21,20 @@ public class Main {
                     case 1:
                         System.out.println("Quantas tentativas o jogador terá?");
                         int numTentativas = scanner.nextInt();
+
+                        while (numTentativas < 1) {
+                            System.out.println("Valor inválido. O número de tentativas deve ser pelo menos 1.");
+                            System.out.println("Digite a quantidade de tentativas:");
+                            numTentativas = scanner.nextInt();
+                        }
+
                         System.out.println("Até que número o jogador deve tentar adivinhar?");
                         int numMaximo = scanner.nextInt();
+                        while (numMaximo < 2) {
+                            System.out.println("Valor inválido. O número máximo deve ser pelo menos 2.");
+                            System.out.println("Digite o número máximo:");
+                            numMaximo = scanner.nextInt();
+                        }
 
                         int numSecreto = random.nextInt(numMaximo) + 1;
 
@@ -93,13 +105,13 @@ public class Main {
                         }
                         if (numOpcao >= 1 && numOpcao <= 3) {
                             if (numOpcao == numOpcaoSecreto) {
-                                System.out.println("Você escolheu " + objetoJogador + " o computador escolheu " + objetoMaquina + ", foi um empate!");
+                                System.out.println("Você escolheu " + objetoJogador + " e o computador escolheu " + objetoMaquina + ", foi um empate!");
                             } else if ((numOpcao == 1 && numOpcaoSecreto == 3)
                                     || (numOpcao == 2 && numOpcaoSecreto == 1)
                                     || (numOpcao == 3 && numOpcaoSecreto == 2)) {
-                                System.out.println("Você escolheu " + objetoJogador + " o computador escolheu " + objetoMaquina + ", você venceu!");
+                                System.out.println("Você escolheu " + objetoJogador + " e o computador escolheu " + objetoMaquina + ", você venceu!");
                             } else {
-                                System.out.println("Você escolheu " + objetoJogador + " o computador escolheu " + objetoMaquina + ", você perdeu!");
+                                System.out.println("Você escolheu " + objetoJogador + " e o computador escolheu " + objetoMaquina + ", você perdeu!");
                             }
                         } else {
                             System.out.println("Jogada Inválida.");
